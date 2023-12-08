@@ -18,12 +18,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as av
+from django.views.generic import RedirectView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', av.LoginView.as_view(), name='login'),
     path('accounts/logout/', av.LogoutView.as_view(), name='logout'),
+    path('', RedirectView.as_view(pattern_name='login')),
 ]
 
 if settings.DEBUG:
