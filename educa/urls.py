@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', av.LoginView.as_view(), name='login'),
     path('accounts/logout/', av.LogoutView.as_view(), name='logout'),
-    path('admin/', admin.site.urls),
     path('course/', include('courses.urls')),
     path('', RedirectView.as_view(pattern_name='login')),
 ]
