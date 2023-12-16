@@ -22,7 +22,7 @@ class Course(m.Model):
     subject = m.ForeignKey(Subject,
                            related_name='courses',
                            on_delete=m.CASCADE)
-    title = m.CharField(max_length=200)
+    title = m.CharField(max_length=200, null=False, blank=False, unique=True)
     slug = m.SlugField(max_length=200, unique=True)
     overview = m.TextField()
     created = m.DateTimeField(auto_now_add=True)
@@ -35,7 +35,7 @@ class Course(m.Model):
 
 class Module(m.Model):
     course = m.ForeignKey(Course,
-                          related_name='courses',
+                          related_name='modules',
                           on_delete=m.CASCADE)
     title = m.CharField(max_length=200)
     description = m.TextField(blank=True)
