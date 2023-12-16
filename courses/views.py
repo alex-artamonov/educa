@@ -105,6 +105,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
                                         course__owner=request.user)
         self.model = self.get_model(model_name)
         if id:
+            print('=' * 100, '\n', self.model)
             self.obj = get_object_or_404(self.model,
                                          id=id,
                                          owner=request.user)
