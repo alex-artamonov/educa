@@ -26,6 +26,9 @@ class Course(m.Model):
     slug = m.SlugField(max_length=200, unique=True)
     overview = m.TextField()
     created = m.DateTimeField(auto_now_add=True)
+    students = m.ManyToManyField(User,
+                                 related_name='courses_joined',
+                                 blank=True)
 
     class Meta:
         ordering = ['-created']

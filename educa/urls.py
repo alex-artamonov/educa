@@ -32,6 +32,7 @@ urlpatterns = [
     path('accounts/logout/', av.LogoutView.as_view(), name='logout'),
     path('accounts/profile/', RedirectView.as_view(pattern_name='manage_course_list')),
     path('course/', include('courses.urls')),
+    path('students/', include('students.urls')),
     path('', CourseListView.as_view(), name='course_list'),
     # path('', RedirectView.as_view(pattern_name='login')),
 ]
